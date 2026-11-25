@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARMGEN - Smart Farming Assistant</title>
+    <link rel="stylesheet" href="css2.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>🌱 FARMGEN</h1>
+        <p>Smart Farming. Better Harvest.</p>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#crops">Crops</a>
+            <a href="#weather">Weather</a>
+            <a href="#market">Market</a>
+            <a href="#register">Register</a>
+            <a href="#tips">Tips</a>
+            <a href="#disease">Plant Health</a>
+            <a href="#schemes">Schemes</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <h2>Welcome to FARMGEN</h2>
+        <h3>Your Smart Farming Companion</h3>
+        <p>
+            Empowering farmers with crop information,
+            weather updates, market prices and modern
+            agricultural knowledge.
+        </p>
+        <a href="#crops" class="btn">Explore FARMGEN</a>
+    </section>
+
+    <main>
+
+        <!-- Crop Information -->
+        <section id="crops" class="container">
+            <h2>🌾 Crop Information</h2>
+            <p>Learn about different crops and their growing seasons.</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Rice</h3>
+                    <p>Season: Kharif and Rabi</p>
+                    <p>Soil: Clayey soil</p>
+                    <p>Water: High requirement</p>
+                </div>
+
+                <div class="card">
+                    <h3>Wheat</h3>
+                    <p>Season: Rabi</p>
+                    <p>Soil: Loamy soil</p>
+                    <p>Water: Moderate requirement</p>
+                </div>
+
+                <div class="card">
+                    <h3>Maize</h3>
+                    <p>Season: Kharif and Rabi</p>
+                    <p>Soil: Well-drained soil</p>
+                    <p>Water: Moderate requirement</p>
+                </div>
+
+                <div class="card">
+                    <h3>Sugarcane</h3>
+                    <p>Season: Long-duration crop</p>
+                    <p>Soil: Fertile loamy soil</p>
+                    <p>Water: High requirement</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Section -->
+        <section id="weather" class="container">
+            <h2>🌤 Weather Updates</h2>
+            <p>Enter your district to view sample weather information.</p>
+
+            <input type="text" id="city" placeholder="Enter your district">
+            <button onclick="getWeather()">Check Weather</button>
+
+            <div id="weatherResult" class="result"></div>
+            <p class="note">Demo weather data only. Connect a weather API for live forecasts.</p>
+        </section>
+
+        <!-- Market Prices -->
+        <section id="market" class="container">
+            <h2>💰 Agricultural Market Prices</h2>
+            <p>Sample crop prices per quintal (₹).</p>
+
+            <table>
+                <tr>
+                    <th>Crop</th>
+                    <th>Price (₹)</th>
+                </tr>
+                <tr>
+                    <td>Rice</td>
+                    <td>2500</td>
+                </tr>
+                <tr>
+                    <td>Wheat</td>
+                    <td>2400</td>
+                </tr>
+                <tr>
+                    <td>Maize</td>
+                    <td>2200</td>
+                </tr>
+                <tr>
+                    <td>Sugarcane</td>
+                    <td>350</td>
+                </tr>
+            </table>
+            <p class="note">Illustrative prices, not current mandi quotations.</p>
+        </section>
+
+        <!-- Farmer Registration -->
+        <section id="register" class="container">
+            <h2>👨‍🌾 Farmer Registration</h2>
+
+            <form id="farmerForm">
+                <input type="text" id="farmerName"
+                    placeholder="Enter your name" required>
+
+                <input type="number" id="farmerAge"
+                    placeholder="Enter your age" min="18" max="120" required>
+
+                <input type="tel" id="farmerPhone"
+                    placeholder="Enter mobile number"
+                    pattern="[0-9]{10}" required>
+
+                <input type="text" id="farmerLocation"
+                    placeholder="Enter your village / district" required>
+
+                <select id="farmerCrop" required>
+                    <option value="">Select your crop</option>
+                    <option>Rice</option>
+                    <option>Wheat</option>
+                    <option>Maize</option>
+                    <option>Sugarcane</option>
+                    <option>Other</option>
+                </select>
+
+                <button type="submit">Register Now</button>
+            </form>
+
+            <div id="registrationResult" class="result"></div>
+        </section>
+
+        <!-- Farming Tips -->
+        <section id="tips" class="container">
+            <h2>🌱 Smart Farming Tips</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Soil Management</h3>
+                    <p>Test soil regularly to understand its nutrient requirements.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Water Management</h3>
+                    <p>Use drip irrigation where suitable to reduce water wastage.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Organic Farming</h3>
+                    <p>Use suitable compost and organic manure to improve soil health.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Crop Rotation</h3>
+                    <p>Rotate crops to maintain soil fertility and reduce pest problems.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plant Disease Identification -->
+        <section id="disease" class="container">
+            <h2>🔍 Plant Disease Identification</h2>
+            <p>Select the symptoms observed in your plant.</p>
+
+            <select id="symptom">
+                <option value="">Select a symptom</option>
+                <option value="yellow">Yellow leaves</option>
+                <option value="spots">Brown or black spots</option>
+                <option value="wilting">Wilting leaves</option>
+                <option value="powder">White powder on leaves</option>
+            </select>
+
+            <button onclick="checkDisease()">Check Symptoms</button>
+
+            <div id="diseaseResult" class="result"></div>
+            <p class="note">This is preliminary guidance, not a confirmed diagnosis.
+            Consult an agricultural expert for treatment advice.</p>
+        </section>
+
+        <!-- Government Schemes -->
+        <section id="schemes" class="container">
+            <h2>🏛 Government Schemes</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>PM-KISAN</h3>
+                    <p>Provides eligible farmer families with income support.</p>
+                    <a href="https://pmkisan.gov.in/" target="_blank">
+                        Official Website
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>PM Fasal Bima Yojana</h3>
+                    <p>A crop insurance scheme for eligible farmers.</p>
+                    <a href="https://pmfby.gov.in/" target="_blank">
+                        Official Website
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Kisan Credit Card</h3>
+                    <p>Provides eligible farmers access to agricultural credit.</p>
+                    <a href="https://www.myscheme.gov.in/" target="_blank">
+                        Scheme Details
+                    </a>
+                </div>
+
+                <div class="card">
+                    <h3>Soil Health Card</h3>
+                    <p>Helps farmers understand soil nutrient status and recommendations.</p>
+                    <a href="https://soilhealth.dac.gov.in/" target="_blank">
+                        Official Website
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h2>🌱 FARMGEN</h2>
+        <p>Technology for Farmers, Growth for Agriculture.</p>
+        <p>© 2026 FARMGEN. All Rights Reserved.</p>
+    </footer>
+
+    <script src="java3.js"></script>
+</body>
+</html>
